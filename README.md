@@ -4,7 +4,7 @@
 [![Bower version](https://img.shields.io/bower/v/tzdata-coordinate-regex.svg)](https://github.com/shinnn/tzdata-coordinate-regex/releases)
 [![Build Status](https://travis-ci.org/shinnn/tzdata-coordinate-regex.svg?branch=master)](https://travis-ci.org/shinnn/tzdata-coordinate-regex)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/tzdata-coordinate-regex.svg)](https://coveralls.io/r/shinnn/tzdata-coordinate-regex)
-[![devDependency Status](https://david-dm.org/shinnn/tzdata-coordinate-regex/dev-status.svg)](https://david-dm.org/shinnn/tzdata-coordinate-regex#info=devDependencies)
+[![devDependencies Status](https://david-dm.org/shinnn/tzdata-coordinate-regex/dev-status.svg)](https://david-dm.org/shinnn/tzdata-coordinate-regex?type=dev)
 
 Regular expression for time zone coordinates in [zone.tab](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) format
 
