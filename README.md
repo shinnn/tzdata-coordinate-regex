@@ -65,6 +65,4 @@ tzdataCoordinateRegex({exact: true}).test('foo +4254+07436'); //=> false
 
 ## License
 
-Copyright (c) 2016 [Shinnosuke Watanabe](https://github.com/shinnn)
-
-Licensed under [the MIT License](./LICENSE).
+[Creative Commons Zero v1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/deed)

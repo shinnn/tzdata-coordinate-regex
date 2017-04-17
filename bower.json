@@ -23,7 +23,6 @@
   ],
   "main": "browser.js",
   "moduleType": "globals",
-  "homepage": "https://github.com/shinnn/tzdata-coordinate-regex",
   "repository": {
     "type": "git",
     "url": "git://github.com/shinnn/tzdata-coordinate-regex.git"
@@ -31,7 +30,7 @@
   "authors": [
     "Shinnosuke Watanabe (https://github.com/shinnn)"
   ],
-  "license": "MIT",
+  "license": "CC0-1.0",
   "ignore": [
     "**/.*",
     "*.js",
