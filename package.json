@@ -5,15 +5,16 @@
   "repository": "shinnn/tzdata-coordinate-regex",
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
   "scripts": {
-    "pretest": "eslint --fix --format=codeframe --ignore-path .gitignore .",
-    "test": "node --throw-deprecation --track-heap-objects test.js | tap-spec",
-    "coverage": "istanbul cover test.js"
+    "prebuild": "eslint --fix --format=codeframe module.js test.js",
+    "build": "rollup --config=node:module",
+    "pretest": "npm run-script build",
+    "test": "istanbul cover test.js"
   },
   "license": "CC0-1.0",
-  "jsnext:main": "index.jsnext.js",
+  "jsnext:main": "module.js",
   "files": [
     "index.js",
-    "index.jsnext.js"
+    "module.js"
   ],
   "keywords": [
     "regex",
@@ -38,13 +39,12 @@
     "client-side"
   ],
   "devDependencies": {
-    "@shinnn/eslint-config": "^3.3.6",
-    "eslint": "^3.12.2",
+    "@shinnn/eslint-config": "^4.0.3",
+    "eslint": "^4.2.0",
     "istanbul": "^0.4.5",
-    "require-from-string": "^1.2.1",
-    "rollup": "^0.39.2",
-    "tap-spec": "^4.1.1",
-    "tape": "^4.6.3"
+    "rollup": "^0.35.0",
+    "rollup-config-module": "^1.0.0",
+    "tape": "^4.7.0"
   },
   "eslintConfig": {
     "extends": "@shinnn"

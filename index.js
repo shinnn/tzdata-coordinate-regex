@@ -1,10 +1,10 @@
+'use strict';
+
 /*!
  * tzdata-coordinate-regex | MIT (c) Shinnosuke Watanabe
  * https://github.com/shinnn/tzdata-coordinate-regex
 */
-'use strict';
-
-var patterns = [
+const patterns = [
   '([\\+-])(\\d{2})(\\d{2})([\\+-])(\\d{3})(\\d{2})',
   '([\\+-])(\\d{2})(\\d{2})(\\d{2})([\\+-])(\\d{3})(\\d{2})(\\d{2})'
 ];
@@ -13,7 +13,7 @@ function strictifyPattern(pattern) {
   return '^' + pattern + '$';
 }
 
-module.exports = function tzdataCoordinateRegex(option) {
+function tzdataCoordinateRegex(option) {
   if (option) {
     if (typeof option !== 'object') {
       throw new TypeError(
@@ -35,4 +35,6 @@ module.exports = function tzdataCoordinateRegex(option) {
   }
 
   return new RegExp(patterns.join('|'), 'g');
-};
+}
+
+module.exports = tzdataCoordinateRegex;

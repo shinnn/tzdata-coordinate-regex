@@ -2,7 +2,7 @@
  * tzdata-coordinate-regex | MIT (c) Shinnosuke Watanabe
  * https://github.com/shinnn/tzdata-coordinate-regex
 */
-var patterns = [
+const patterns = [
   '([\\+-])(\\d{2})(\\d{2})([\\+-])(\\d{3})(\\d{2})',
   '([\\+-])(\\d{2})(\\d{2})(\\d{2})([\\+-])(\\d{3})(\\d{2})(\\d{2})'
 ];
