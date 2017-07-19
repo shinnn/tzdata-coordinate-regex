@@ -2,20 +2,13 @@
  * tzdata-coordinate-regex | MIT (c) Shinnosuke Watanabe
  * https://github.com/shinnn/tzdata-coordinate-regex
 */
-const patterns = [
-  '([\\+-])(\\d{2})(\\d{2})([\\+-])(\\d{3})(\\d{2})',
-  '([\\+-])(\\d{2})(\\d{2})(\\d{2})([\\+-])(\\d{3})(\\d{2})(\\d{2})'
-];
-
-function strictifyPattern(pattern) {
-  return '^' + pattern + '$';
-}
+var source = '([\\+-])(\\d{2})(\\d{2})(?:([\\+-])(\\d{3})(\\d{2})|(\\d{2})([\\+-])(\\d{3})(\\d{2})(\\d{2}))';
 
 export default function tzdataCoordinateRegex(option) {
   if (option) {
     if (typeof option !== 'object') {
       throw new TypeError(
-        String(option) +
+        option +
         ' is not an object. Expected an object with a Boolean `exact` property.'
       );
     }
@@ -23,14 +16,14 @@ export default function tzdataCoordinateRegex(option) {
     if ('exact' in option) {
       if (typeof option.exact !== 'boolean') {
         throw new TypeError(
-          String(option.exact) +
+          option.exact +
           ' is neither true nor false. `exact` option must be a Boolean value.'
         );
       }
 
-      return new RegExp(patterns.map(strictifyPattern).join('|'));
+      return new RegExp('^' + source + '$');
     }
   }
 
-  return new RegExp(patterns.join('|'), 'g');
+  return new RegExp(source, 'g');
 }

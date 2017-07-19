@@ -47,6 +47,9 @@
     "tape": "^4.7.0"
   },
   "eslintConfig": {
-    "extends": "@shinnn"
+    "extends": "@shinnn",
+    "rules": {
+      "no-var": "off"
+    }
   }
 }

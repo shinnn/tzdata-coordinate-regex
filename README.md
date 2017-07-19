@@ -9,7 +9,7 @@ Regular expression for time zone coordinates in [zone.tab](https://en.wikipedia.
 
 ```javascript
 tzdataCoordinateRegex();
-//=> /([\+-])(\d{2})(\d{2})([\+-])(\d{3})(\d{2})|([\+-])(\d{2})(\d{2})(\d{2})([\+-])(\d{3})(\d{2})(\d{2})/g
+//=> /([\+-])(\d{2})(\d{2})(?:([\+-])(\d{3})(\d{2})|(\d{2})([\+-])(\d{3})(\d{2})(\d{2}))/g
 
 `PS	+313200+0350542	Asia/Hebron	West Bank
  PT	+3843-00908	Europe/Lisbon	Portugal (mainland)`.match(tzdataCoordinateRegex());

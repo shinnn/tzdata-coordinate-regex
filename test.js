@@ -23,9 +23,6 @@ test('we', t => {
       undefined,
       undefined,
       undefined,
-      undefined,
-      undefined,
-      undefined,
       undefined
     ],
     'should return a regexp that matches TZ-database-style time zone coordinates.'
@@ -35,15 +32,12 @@ test('we', t => {
     Array.from(regex.exec(fixture)),
     [
       '-690022+0393524',
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
       '-',
       '69',
       '00',
+      undefined,
+      undefined,
+      undefined,
       '22',
       '+',
       '039',
