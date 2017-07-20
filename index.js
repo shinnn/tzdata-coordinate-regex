@@ -15,15 +15,13 @@ function tzdataCoordinateRegex(option) {
       );
     }
 
-    if ('exact' in option) {
-      if (typeof option.exact !== 'boolean') {
-        throw new TypeError(
-          option.exact +
-          ' is neither true nor false. `exact` option must be a Boolean value.'
-        );
-      }
-
+    if (option.exact === true) {
       return new RegExp('^' + source + '$');
+    } else if (option.exact !== undefined && option.exact !== false) {
+      throw new TypeError(
+        option.exact +
+        ' is neither true nor false. `exact` option must be a Boolean value.'
+      );
     }
   }
 

@@ -3,7 +3,7 @@
 const test = require('tape');
 const tzdataCoordinateRegex = require('.');
 
-test('we', t => {
+test('tzdataCoordinateRegex()', t => {
   t.equal(tzdataCoordinateRegex.name, 'tzdataCoordinateRegex', 'should have a function name.');
 
   const regex = tzdataCoordinateRegex();
@@ -47,13 +47,13 @@ test('we', t => {
     'should return a regexp with `global` flag.'
   );
 
-  t.strictEqual(
+  t.equal(
     tzdataCoordinateRegex({}).exec('-1.362863+36.834583'),
     null,
     'should return a regexp that doesn\'t match non time zone formats.'
   );
 
-  t.strictEqual(
+  t.equal(
     tzdataCoordinateRegex({exact: true}).exec(' -2411-06518'),
     null,
     'should return a regexp that matches only one exact time zone coordinate with `exact` option..'
