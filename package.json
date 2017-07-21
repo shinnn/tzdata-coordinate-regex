@@ -11,7 +11,7 @@
     "test": "istanbul cover test.js"
   },
   "license": "CC0-1.0",
-  "jsnext:main": "module.js",
+  "module": "module.js",
   "files": [
     "index.js",
     "module.js"
