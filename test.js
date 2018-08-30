@@ -3,72 +3,93 @@
 const test = require('tape');
 const tzdataCoordinateRegex = require('.');
 
-test('tzdataCoordinateRegex()', t => {
-  t.equal(tzdataCoordinateRegex.name, 'tzdataCoordinateRegex', 'should have a function name.');
-
-  const regex = tzdataCoordinateRegex();
-  const fixture = 'AM +4011+04430 Asia/Yerevan\nAQ -690022+0393524 Antarctica/Syowa Syowa';
-
+test('tzdataCoordinateRegex', t => {
   t.deepEqual(
-    Array.from(regex.exec(fixture)),
+    [...tzdataCoordinateRegex.exec('+4011+04430')],
     [
       '+4011+04430',
       '+',
       '40',
       '11',
+      undefined,
       '+',
       '044',
       '30',
-      undefined,
-      undefined,
-      undefined,
-      undefined,
       undefined
     ],
-    'should return a regexp that matches TZ-database-style time zone coordinates.'
+    'should matche TZ-database-style time zone coordinates.'
   );
 
   t.deepEqual(
-    Array.from(regex.exec(fixture)),
+    [...tzdataCoordinateRegex.exec('-690022+0393524')],
     [
       '-690022+0393524',
       '-',
       '69',
       '00',
-      undefined,
-      undefined,
-      undefined,
       '22',
       '+',
       '039',
       '35',
       '24'
     ],
-    'should return a regexp with `global` flag.'
+    'should matche TZ-database-style time zone coordinates with seconds.'
+  );
+
+  const {groups} = tzdataCoordinateRegex.exec('-905958-1805959');
+
+  t.equal(
+    groups.latitudeSeconds,
+    '58',
+    'should capture latitude seconds as a named group if available.'
   );
 
   t.equal(
-    tzdataCoordinateRegex({}).exec('-1.362863+36.834583'),
-    null,
-    'should return a regexp that doesn\'t match non time zone formats.'
+    groups.longitudeSeconds,
+    '59',
+    'should capture longitude seconds as a named group if available.'
   );
 
   t.equal(
-    tzdataCoordinateRegex({exact: true}).exec(' -2411-06518'),
+    tzdataCoordinateRegex.exec('-112233+1122'),
     null,
-    'should return a regexp that matches only one exact time zone coordinate with `exact` option..'
+    'should not match invalid tz coordinates.'
   );
 
-  t.throws(
-    () => tzdataCoordinateRegex(true),
-    /TypeError.*true is not an object\. Expected an object with a Boolean `exact` property\./,
-    'should throw a type error when the argument is not an object.'
+  t.equal(
+    tzdataCoordinateRegex.exec('-9100+00000'),
+    null,
+    'should take latitude range (-90 ~ +90) into consideration.'
   );
 
-  t.throws(
-    () => tzdataCoordinateRegex({exact: 1}),
-    /TypeError.*1 is neither true nor false\. `exact` option must be a Boolean value\./,
-    'should throw a type error when the argument has non-boolean `exact` property.'
+  t.equal(
+    tzdataCoordinateRegex.exec('+000000-1810000'),
+    null,
+    'should take longitude range (-180 ~ +180) into consideration.'
+  );
+
+  t.equal(
+    tzdataCoordinateRegex.exec('+006000-0000000'),
+    null,
+    'should validate latitude minutes.'
+  );
+
+  t.equal(
+    tzdataCoordinateRegex.exec('+000000-0006000'),
+    null,
+    'should validate longitude minutes.'
+  );
+
+  t.equal(
+    tzdataCoordinateRegex.exec('+000060-0000000'),
+    null,
+    'should validate latitude seconds.'
+  );
+
+  t.equal(
+    tzdataCoordinateRegex.exec('+000000-0000060'),
+    null,
+    'should validate longitude seconds.'
   );
 
   t.end();

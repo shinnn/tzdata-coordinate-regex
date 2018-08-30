@@ -1,31 +1,5 @@
 'use strict';
 
-/*!
- * tzdata-coordinate-regex | MIT (c) Shinnosuke Watanabe
- * https://github.com/shinnn/tzdata-coordinate-regex
-*/
-var source = '([\\+-])(\\d{2})(\\d{2})(?:([\\+-])(\\d{3})(\\d{2})|(\\d{2})([\\+-])(\\d{3})(\\d{2})(\\d{2}))';
+var module$1 = /^([+-])([0-8]\d|90)([0-5]\d)(?<latitudeSeconds>[0-5]\d(?=[+-]\d{7}))?([+-])(0\d{2}|1(?:[0-7]\d|80))([0-5]\d)(?<longitudeSeconds>(?<=[+-]\d{6}[+-]\d{5})[0-5]\d)?$/u;
 
-function tzdataCoordinateRegex(option) {
-  if (option) {
-    if (typeof option !== 'object') {
-      throw new TypeError(
-        option +
-        ' is not an object. Expected an object with a Boolean `exact` property.'
-      );
-    }
-
-    if (option.exact === true) {
-      return new RegExp('^' + source + '$');
-    } else if (option.exact !== undefined && option.exact !== false) {
-      throw new TypeError(
-        option.exact +
-        ' is neither true nor false. `exact` option must be a Boolean value.'
-      );
-    }
-  }
-
-  return new RegExp(source, 'g');
-}
-
-module.exports = tzdataCoordinateRegex;
+module.exports = module$1;
