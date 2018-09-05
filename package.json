@@ -6,15 +6,15 @@
 	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
 	"license": "CC0-1.0",
 	"scripts": {
-		"prebuild": "eslint --fix --format=codeframe module.js test.js",
+		"prebuild": "eslint --fix .",
 		"build": "rollup --config=node:module",
 		"pretest": "npm run-script build",
 		"test": "node test.js"
 	},
-	"module": "module.js",
+	"module": "index.mjs",
 	"files": [
 		"index.js",
-		"module.js"
+		"index.mjs"
 	],
 	"keywords": [
 		"regex",
@@ -38,11 +38,12 @@
 		"validation"
 	],
 	"devDependencies": {
-		"@shinnn/eslint-config": "^4.0.3",
-		"eslint": "^4.3.0",
-		"rollup": "^0.45.2",
-		"rollup-config-module": "^1.0.0",
-		"tape": "^4.7.0"
+		"@shinnn/eslint-config": "^6.6.4",
+		"eslint": "^5.5.0",
+		"regexp-tree": "0.0.85",
+		"rollup": "^0.65.2",
+		"rollup-config-module": "^2.0.1",
+		"tape": "^4.9.1"
 	},
 	"eslintConfig": {
 		"extends": "@shinnn"
