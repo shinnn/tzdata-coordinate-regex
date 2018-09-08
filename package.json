@@ -1,6 +1,6 @@
 {
 	"name": "tzdata-coordinate-regex",
-	"version": "2.0.0-2",
+	"version": "2.0.0",
 	"description": "A regular expression for time zone coordinates in zone.tab format",
 	"repository": "shinnn/tzdata-coordinate-regex",
 	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
@@ -38,7 +38,7 @@
 		"validation"
 	],
 	"devDependencies": {
-		"@shinnn/eslint-config": "^6.6.4",
+		"@shinnn/eslint-config": "^6.7.0",
 		"eslint": "^5.5.0",
 		"regexp-tree": "0.0.85",
 		"rollup": "^0.65.2",
