@@ -1,7 +1,7 @@
 # tzdata-coordinate-regex
 
 [![npm version](https://img.shields.io/npm/v/tzdata-coordinate-regex.svg)](https://www.npmjs.com/package/tzdata-coordinate-regex)
-[![Build Status](https://travis-ci.org/shinnn/tzdata-coordinate-regex.svg?branch=master)](https://travis-ci.org/shinnn/tzdata-coordinate-regex)
+[![Github Actions](https://action-badges.now.sh/shinnn/tzdata-coordinate-regex)](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/shinnn/tzdata-coordinate-regex)
 
 A regular expression for time zone coordinates in [zone.tab](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) format
 
@@ -74,4 +74,4 @@ tzdataCoordinateRegex.exec('-353916+1394441');
 
 ## License
 
-[ISC License](./LICENSE) © 2018 Shinnosuke Watanabe
+[ISC License](./LICENSE) © 2018 - 2019 Shinnosuke Watanabe
