@@ -12,7 +12,7 @@ tzdataCoordinateRegex.test('+3843-00908'); //=> true
 
 ## Installation
 
-[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/getting-started/what-is-npm).
+[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/about-npm/).
 
 ```
 npm install tzdata-coordinate-regex
@@ -74,4 +74,4 @@ tzdataCoordinateRegex.exec('-353916+1394441');
 
 ## License
 
-[ISC License](./LICENSE) © 2018 - 2019 Shinnosuke Watanabe
+[ISC License](./LICENSE) © 2018 - 2019 Watanabe Shinnosuke
